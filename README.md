@@ -5,7 +5,7 @@ LLMs can turn a natural-language optimization problem into a mathematical model 
 FaithOR trains a compact 4B **semantic detector** that reads the problem, the numbered candidate model and its solver feedback, and returns the wrong components, their error types and a missing-constraint flag. A frozen writer applies **one** targeted repair. On seven public benchmarks (1,511 problems) this single round lifts Qwen3.6-35B from 87.4% to 92.6%, DeepSeek-v4.1-flash to 93.8% and Gemini-3-flash to 94.7%, captures 98% of what three rounds would give, and costs about one tenth of the API tokens of the strongest prior pipeline.
 
 - **Paper**: *arXiv, coming soon*
-- **Training data**: [FaithOR-Supervision](https://huggingface.co/QMJWang/FaithOR-Supervision) — 24.6K component-level diagnoses from writer formulations and semantic-contract simulation, plus 3.7K GRPO prompts
+- **Training data**: [FaithOR-Supervision](https://huggingface.co/datasets/QMJWang/FaithOR-Supervision) — 24.6K component-level diagnoses from writer formulations and semantic-contract simulation, plus 3.7K GRPO prompts
 - **Detector**: [FaithOR-Detector-4B](https://huggingface.co/QMJWang/FaithOR-Detector-4B) — Qwen3-4B, two-stage SFT on the data above
 
 This repository holds the data construction, training, inference, one-round repair pipeline, scoring and baselines.
@@ -140,7 +140,7 @@ python scripts/rehydrate.py --optmath /path/to/OptMATH-Train.jsonl --resocratic 
   --data-dir ../FaithOR-Supervision/data --out-dir ../FaithOR-Supervision/data   # verified against REHYDRATED_SHA256SUMS
 ```
 
-Two supervised stages on [FaithOR-Supervision](https://huggingface.co/QMJWang/FaithOR-Supervision) from `Qwen/Qwen3-4B` (`configs/training.json` holds every hyper-parameter):
+Two supervised stages on [FaithOR-Supervision](https://huggingface.co/datasets/QMJWang/FaithOR-Supervision) from `Qwen/Qwen3-4B` (`configs/training.json` holds every hyper-parameter):
 
 ```bash
 # stage 1: data/sft_stage1.jsonl (optmath + resocratic rows), LoRA r64, lr 1e-4
