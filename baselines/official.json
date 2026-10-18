@@ -1,0 +1,17 @@
+[
+  {
+    "name": "SAC-Opt",
+    "url": "https://github.com/Forrest-Stone/SAC-Opt.git",
+    "commit": "ec0ddb544ae6b70714181740ebbba16027df50e4"
+  },
+  {
+    "name": "OptiMUS",
+    "url": "https://github.com/teshnizi/OptiMUS.git",
+    "commit": "59e8d99653459b40361f618eafdc91eee3a85ebb"
+  },
+  {
+    "name": "OptiMUS_v02",
+    "url": "https://github.com/teshnizi/OptiMUS.git",
+    "commit": "181cd82b55f2d7396940511bbc46c6bdb17aab1a"
+  }
+]
